@@ -121,7 +121,9 @@
             <div id="review-content" style="padding: 12px 0;"></div>
             <div class="action-container" style="padding: 10px 0 0 0;"><button class="btn-submit" style="background:#e11d48;" onclick="closeReview()">ရလဒ်စာရွက်သို့ ပြန်သွားမည်</button></div>
         </div>
-         <style>
+    </div>
+
+<style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', 'Pyidaungsu', sans-serif; -webkit-tap-highlight-color: transparent; transition: background 0.3s, color 0.3s, border-color 0.3s; }
     body { 
         background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
@@ -235,8 +237,8 @@
     .btn-restart-mini { background: #f43f5e; color: #ffffff; width: 100%; }
     .dark-toggle-btn { background: rgba(255,255,255,0.2); border: none; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: bold; }
 </style>
-  </div>
-        <script>
+
+<script>
     const allQuestions = [
         { q: "21. 다음을 듣고 알맞은 것을 고르십시오.", group: "[21 - 24] 들은 것을 고르십시오.", a: ["통풍", "송풍", "밀풍", "환풍"], c: 3 },
         { q: "22. 다음을 듣고 알맞은 것을 고르십시오.", group: "", a: ["6월 16일", "6월 26일", "7월 16일", "7월 26일"], c: 0 },
@@ -247,24 +249,125 @@
         { q: "26. 여기는 어디입니까?", group: "", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 2, img: "https://i.imgur.com/8Q7fXda.jpeg" },
         { q: "27. 이 사람은 지금 무엇을 하고 있습니까?", group: "", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 0, img: "https://i.imgur.com/UdbBTTo.jpeg" },
         
-        { q: "28. 다음을 듣고 질문에 알맞은 대답을 고르십시오.", group: "[28 - 33] 다음을 듣고 질문에 알맞은 대답을 고르십시오.", a: ["네, 통풍이 잘돼서 시원해요.", "아니요, 어제 환기창을 닫았어요.", "네, 난방기를 켜 두어서 따뜻해요.", "아니요, 지금은 선풍기를 쓸 수 없어요."], c: 2 },
-        { q: "29. 다음을 듣고 질문에 알맞은 대답을 고르십시오.", group: "", a: ["수동으로 모터를 켜세요.", "관리자에게 즉시 보고하세요.", "전원 플러그를 다시 꽂아 보세요.", "비상정지 버튼을 눌러 기계를 멈추세요."], c: 3 },
-        { q: "30. 다음을 듣고 질문에 알맞은 대답을 고르십시오.", group: "", a: ["네, 산재 보험에 가입되어 있어요.", "아니요, 상해보험은 보상이 안 돼요.", "네, 출국할 때 공항에서 직접 받으세요.", "아니요, 치료비 영수증을 먼저 챙겨 오세요."], c: 0 },
-        { q: "31. 다음을 듣고 질문에 알맞은 대답을 고르십시오.", group: "", a: ["기숙사 관리실에 말씀해 보세요.", "세탁기가 다 돌아가면 빨래를 너세요.", "화장실 변기가 막혔을 때는 뚫어뻥을 쓰세요.", "사용한 세제 통은 분리수거함에 버리셔야 해요."], c: 0 },
-        { q: "32. 다음을 듣고 질문에 알맞은 대답을 고르십시오.", group: "", a: ["고용센터에 직접 방문하세요.", "사업주와 합의서를 먼저 작성하세요.", "출입국관리사무소에 가서 체류기간을 늘리세요.", "외국인력지원센터에서 통역 서비스를 신청하세요."], c: 0 },
-        { q: "33. 다음을 듣고 질문에 알맞은 대답을 고르십시오.", group: "", a: ["제품 출하 검사를 하고 있어요.", "포장 상자에 바코드를 찍고 있어요.", "파손된 부품을 용접해서 수리하고 있어요.", "줄자로 규격이 맞는지 치수를 재고 있어요."], c: 3 },
+        { q: "28. 질문에 알맞은 대답을 고르십시오.", group: "[28 - 33] 다음을 듣고 질문에 알맞은 대답을 고르십시오.", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 2 },
+        { q: "29. 질문에 알맞은 대답을 고르십시오.", group: "", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 3 },
+        { q: "30. 질문에 알맞은 대답을 고르십시오.", group: "", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 0 },
+        { q: "31. 질문에 알맞은 대답을 고르십시오.", group: "", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 0 },
+        { q: "32. 질문에 알맞은 대답을 고르십시오.", group: "", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 0 },
+        { q: "33. 질문에 알맞은 대답을 고르십시오.", group: "", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 3 },
         
-        { q: "34. 다음을 듣고 이어지는 말을 고르십시오.", group: "[34 - 35] 다음을 듣고 이어지는 말을 고르십시오.", a: ["네, 폐유 통에 따로 모아 두었어요.", "아니요, 걸레로 기름을 닦지 마세요.", "네, 바닥에 모래를 뿌려 두면 미끄럽지 않아요.", "아니요, 기름이 묻은 장갑은 빨아서 다시 써야 해요."], c: 0 },
-        { q: "35. 다음을 듣고 이어지는 말을 고르십시오.", group: "", a: ["그럼 제가 지게차 면허증을 보여 드릴게요.", "손수레를 가져와서 둘이 같이 나눠 싣지요.", "트럭이 올 때까지 창고 밖에서 기다려 주세요.", "상자가 무거우니까 끈으로 더 단단하게 묶으세요."], c: 1 },
+        { q: "34. 이어지는 말을 고르십시오.", group: "[34 - 35] 다음을 듣고 이어지는 말을 고르십시오.", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 0 },
+        { q: "35. 이어지는 말을 고르십시오.", group: "", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 1 },
         
-        { q: "36. 잘 듣고 들은 내용과 관계있는 그림을 고르십시오.", group: "[36 - 37] 잘 듣고 들은 내용과 관계있는 그림을 고르십시오.", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 0, img: "https://i.imgur.com/Azlr51M.jpeg" },
-        { q: "37. 잘 듣고 들은 내용과 관계있는 그림을 고르십시오.", group: "", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 1, img: "https://i.imgur.com/QYwz0Cd.jpeg" },
+        { q: "36. 들은 내용과 관계있는 그림을 고르십시오.", group: "[36 - 37] 잘 듣고 들은 내용과 관계있는 그림을 고르십시오.", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 0, img: "https://i.imgur.com/Azlr51M.jpeg" },
+        { q: "37. 들은 내용과 관계있는 그림을 고르십시오.", group: "", a: ["보기 1 (①)", "보기 2 (②)", "보기 3 (③)", "보기 4 (④)"], c: 1, img: "https://i.imgur.com/QYwz0Cd.jpeg" },
         
-        { q: "38. 남자는 왜 여자에게 부탁한 일은 무엇입니까?", group: "[38 - 40] 이야기를 듣고 질문에 알맞은 대답을 고르십시오.", a: ["출하증 복사하기", "밴딩 끈 사 오기", "포장 상자 개수 세기", "지게차 운전해 주기"], c: 2 },
+        { q: "38. 남자가 여자에게 부탁한 일은 무엇입니까?", group: "[38 - 40] 이야기를 듣고 질문에 알맞은 대답을 고르십시오.", a: ["출하증 복사하기", "밴딩 끈 사 오기", "포장 상자 개수 세기", "지게차 운전해 주기"], c: 2 },
         { q: "39. 남자는 왜 기숙사 방을 옮기고 싶어 합니까?", group: "", a: ["룸메이트와 사이가 안 좋아서", "방에 곰팡이가 피고 냄새가 나서", "야간 근무 때 소음 때문에 잠을 못 자서", "회사에서 너무 멀리 떨어져 있어서"], c: 2 },
         { q: "40. 대화를 듣고 내용과 일치하는 것을 고르십시오.", group: "", a: ["여자는 퇴직금을 일시불로 수령했습니다.", "남자는 근로계약 연장을 거절당했습니다.", "여자는 체류기간 연장 허가를 받으러 갑니다.", "재고용된 외국인근로자는 출국 후 재입국해야 합니다."], c: 2 }
     ];
-             let currentIndex = 0;
+    let currentIndex = 0;
+    let userAns = [];
+    let studentName = "";
+    let studentPassport = "";
+    let studentSector = "";
+    let totalSeconds = 30 * 60; 
+    let initialSeconds = totalSeconds;
+    let timerInterval = null;
+
+    function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+    }
+
+    function triggerExam() {
+        const nameInput = document.getElementById("username-field").value.trim();
+        const passportInput = document.getElementById("passport-field").value.trim();
+        const sectorInput = document.getElementById("sector-field").value;
+
+        if (!nameInput || !passportInput) {
+            alert("ကျေးဇူးပြု၍ နာမည်နှင့် Passport ကို ထည့်သွင်းပေးပါ။");
+            return;
+        }
+
+        studentName = nameInput;
+        studentPassport = passportInput;
+        studentSector = sectorInput;
+        userAns = Array(allQuestions.length).fill(null);
+
+        document.getElementById("welcome-screen").style.display = "none";
+        document.getElementById("exam-ui").style.display = "block";
+        document.getElementById("header-user-info").textContent = `${studentName} | ${sectorInput.split(' ')[0]}`;
+
+        renderPalette();
+        loadQuestion(0);
+        startTimer();
+    }
+
+    function startTimer() {
+        const tEl = document.getElementById("timer");
+        timerInterval = setInterval(() => {
+            totalSeconds--;
+            let mins = Math.floor(totalSeconds / 60);
+            let secs = totalSeconds % 60;
+            tEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            
+            let percent = (totalSeconds / initialSeconds) * 100;
+            document.getElementById("p-bar").style.width = percent + "%";
+
+            if (totalSeconds <= 0) {
+                clearInterval(timerInterval);
+                finishExam();
+            }
+        }, 1000);
+    }
+
+    function renderPalette() {
+        const pal = document.getElementById("palette");
+        pal.innerHTML = "";
+        allQuestions.forEach((_, idx) => {
+            const dot = document.createElement("div");
+            dot.className = `q-dot ${idx === currentIndex ? 'active' : ''} ${userAns[idx] !== null ? 'done' : ''}`;
+            dot.textContent = idx + 21; 
+            dot.onclick = () => loadQuestion(idx);
+            pal.appendChild(dot);
+        });
+    }
+
+    function loadQuestion(idx) {
+        currentIndex = idx;
+        
+        const groupHeaderBox = document.getElementById("group-header-box");
+        if (allQuestions[currentIndex].group && allQuestions[currentIndex].group.trim() !== "") {
+            groupHeaderBox.textContent = allQuestions[currentIndex].group;
+            groupHeaderBox.style.display = "block";
+        } else {
+            groupHeaderBox.style.display = "none";
+        }
+
+        document.getElementById("q-text").innerHTML = allQuestions[currentIndex].q;
+
+        const imgContainer = document.getElementById("q-image-container");
+        imgContainer.innerHTML = "";
+        if (allQuestions[currentIndex].img) {
+            imgContainer.innerHTML = `
+                <div class="exam-img-wrap">
+                    <img src="${allQuestions[currentIndex].img}" class="exam-img" onclick="openImageModal('${allQuestions[currentIndex].img}')" alt="Exam Image">
+                    <div class="img-hint">🔍 ပုံကို နှိပ်၍ အနီးကပ်ကြည့်ပါ</div>
+                </div>
+            `;
+        }
+
+        const ansList = document.getElementById("ans-list");
+        ansList.innerHTML = "";
+        allQuestions[currentIndex].a.forEach((opt, optIdx) => {
+            const item = document.createElement("div");
+            item.className = `opt-item ${userAns[currentIndex] === optIdx ? 'active' : ''}`;
+            item.innerHTML = `<span class="opt-num">${optIdx + 1}</span> <span>${opt}</span>`;
+            item.onclick = () => selectOption(optIdx);
+            ansList.appendChild(item);
+
+
+    let currentIndex = 0;
     let userAns = [];
     let studentName = "";
     let studentPassport = "";
